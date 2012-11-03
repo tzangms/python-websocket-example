@@ -2,33 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-</head>
-<p>Websocket with Flask, Gevent and Gevent-websocket</p>
-<p id="log"></p>
-<button id="send" type="button">Send!</button>
-<body>
     <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            if ("WebSocket" in window) {
-                ws = new WebSocket("ws://" + document.domain + ":8000/websocket");
-                ws.onmessage = function (msg) {
-                    var message = JSON.parse(msg.data);
-                    $("p#log").html(message.output);
-                };
-            };
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</head>
+<body>
+    <p>Websocket with Flask, Gevent and Gevent-websocket</p>
 
-            // Bind send button to websocket
-            $("button#send").live("click", function() {
-                ws.send(JSON.stringify({'output': 'Sent from my browser!'}));
-            });
+    <form id="chat_form" method="post">
+        <input type="text" name="text" />
+        <input type="submit" value="Send!" />
+    </form>
 
-            // Cleanly close websocket when unload window
-            window.onbeforeunload = function() {
-                ws.onclose = function () {}; // disable onclose handler first
-                ws.close()
-            };
-        });
-    </script>
+    <p id="log"></p>
 </body>
 </html>
