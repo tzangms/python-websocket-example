@@ -1,7 +1,7 @@
 What is this?
 ==========
 
-Simple python websocket example with Flask, gevent, gevent-websocket, described in this [article](http://www.socketubs.net/2012/10/28/Websocket_with_flask_and_gevent/) by @socketubs
+Simple python websocket example with Flask, gevent, gevent-websocket, described in this [article](http://www.socketubs.net/2012/10/28/Websocket_with_flask_and_gevent/) by [@socketubs](http://github.com/socketubs/)
 
 How to?
 ==========
